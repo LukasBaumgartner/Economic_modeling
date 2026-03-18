@@ -1,3 +1,4 @@
+#    # Use Capital first letter (custom or prexisting class)
 class Point:
     def __init__(self, x: object, y: object) -> None:
         """
@@ -23,8 +24,24 @@ class Point:
         """
         return (self.x**2 + self.y**2)**0.5
 
+    def __lt__(self, other):
+        """
+        Compare two points Objects
+        :param other: the other point object
+        :return: bool True or False
+        """
+        if isinstance(other, int):
+            return self.x < other
+        return self.distance_to_origin() < other.distance_to_origin()
 
-    # Use Capital first letter (custom or prexisting class)
+    def __eq__(self, other):
+        if isinstance(other, (int, float)):
+            return self.x == other
+
+    def __mul__(self, other):
+        if isinstance(other, int):
+            return Point(self.x * other, self.y * other)  # returns a new Point
+        raise TypeError("Can only multiply by integers")
 
 # Whenever you create a new point you instentiate the point class
 p1 = Point(1, 2)
@@ -42,3 +59,7 @@ print(points[4].x)
 print(points[5].distance_origin())
 # Entire list to be printed
 print(points)
+points.sort()
+print(points)
+print(Point(7,11).distance_to_other(Point(7,15)))
+print(p2*4)
