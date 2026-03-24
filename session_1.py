@@ -32,7 +32,7 @@ class Point:
         """
         if isinstance(other, int):
             return self.x < other
-        return self.distance_to_origin() < other.distance_to_origin()
+        return self.distance_origin() < other.distance_origin()
 
     def __eq__(self, other):
         if isinstance(other, (int, float)):
@@ -61,5 +61,4 @@ print(points[5].distance_origin())
 print(points)
 points.sort()
 print(points)
-print(Point(7,11).distance_to_other(Point(7,15)))
 print(p2*4)

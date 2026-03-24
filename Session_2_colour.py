@@ -13,7 +13,7 @@ p2 = Color_Point(2,3, "blue")
 
 print(p1.x, p1.y, p1.color)
 print(p2)
-print(p2.distance_to_origin())
+print(p2.distance_origin())
 points = [p1, p2]
 print(points)
 
