@@ -26,11 +26,26 @@ class PlayingCard:
     def __repr__(self):
         return self.__str__()
 
+class Deck:
+    def __init__(self):
+        self._cards = []
+        for suit in PlayingCard.SUITS:
+            for rank in PlayingCard.RANKS:
+                self._cards.append(PlayingCard(suit, rank))
+
+    @property
+    def cards(self):
+        return self._cards
+    def __str__(self):
+        return str(self.cards)
+
 
 card = PlayingCard("♦", "7")
 print(card.suit)
 print(card.rank)
 print(card)
 
-card.rank = "A"  # cheater, we dont like cheaters (this will now fail)
-print(card)
+# card.rank = "A"  # cheater, we dont like cheaters (this will now fail)
+# print(card)
+deck = Deck()
+print(deck._cards)
