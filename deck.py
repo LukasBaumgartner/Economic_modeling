@@ -1,3 +1,6 @@
+import random
+
+
 class PlayingCard:
     SUITS = ["♦", "♣", "♥", "♠"]
     RANKS = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
@@ -26,6 +29,7 @@ class PlayingCard:
     def __repr__(self):
         return self.__str__()
 
+
 class Deck:
     def __init__(self):
         self._cards = []
@@ -36,19 +40,34 @@ class Deck:
     @property
     def cards(self):
         return tuple(self._cards)
+
     def __str__(self):
         return str(self.cards)
 
+    def shuffle(self):
+        random.shuffle(self._cards)
 
-card = PlayingCard("♦", "7")
-print(card.suit)
-print(card.rank)
-print(card)
+    def deal(self):
+        return self._cards.pop(8)
+
+
+deck = Deck()
+deck.shuffle()
+# print(deck)
+
+# card = PlayingCard("♦", "7")
+# print(card.suit)
+# print(card.rank)
+# print(card)
 
 # card.rank = "A"  # cheater, we dont like cheaters (this will now fail)
 # print(card)
-deck = Deck()
-print(deck._cards)
 
-deck.cards.append(card) # We are able to cheat and add a card
-print(deck)
+# print(deck._cards)
+
+# deck.cards.append(card)  # this will fail because cards is a tuple
+# print(deck)
+
+card = deck.deal() #dealing one card
+print(card) #printing the card
+print(deck) #Printing the remaining deck
