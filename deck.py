@@ -35,7 +35,7 @@ class Deck:
 
     @property
     def cards(self):
-        return self._cards
+        return tuple(self._cards)
     def __str__(self):
         return str(self.cards)
 
@@ -49,3 +49,6 @@ print(card)
 # print(card)
 deck = Deck()
 print(deck._cards)
+
+deck.cards.append(card) # We are able to cheat and add a card
+print(deck)
