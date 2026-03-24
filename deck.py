@@ -50,24 +50,25 @@ class Deck:
     def deal(self):
         return self._cards.pop(8)
 
+if __name__ == "__main__":
 
-deck = Deck()
-deck.shuffle()
-# print(deck)
+    deck = Deck()
+    deck.shuffle()
+    # print(deck)
 
-# card = PlayingCard("♦", "7")
-# print(card.suit)
-# print(card.rank)
-# print(card)
+    # card = PlayingCard("♦", "7")
+    # print(card.suit)
+    # print(card.rank)
+    # print(card)
 
-# card.rank = "A"  # cheater, we dont like cheaters (this will now fail)
-# print(card)
+    # card.rank = "A"  # cheater, we dont like cheaters (this will now fail)
+    # print(card)
 
-# print(deck._cards)
+    # print(deck._cards)
 
-# deck.cards.append(card)  # this will fail because cards is a tuple
-# print(deck)
+    # deck.cards.append(card)  # this will fail because cards is a tuple
+    # print(deck)
 
-card = deck.deal() #dealing one card
-print(card) #printing the card
-print(deck) #Printing the remaining deck
+    card = deck.deal() #dealing one card
+    print(card) #printing the card
+    print(deck) #Printing the remaining deck
