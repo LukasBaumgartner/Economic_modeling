@@ -1,34 +1,69 @@
-from colour_point import ColorPoint
-from point_class import Point
+from Session_2_colour import ColorPoint
+from session_1 import (Point)
+
 
 class AdvancedPoint(ColorPoint):
-            def __init__(self, x, y, color):
-                    raise TypeError(f"Color must be one of {self.COLORS}")
-                self._x = x
-                self._y = y
-                self._color = color
+    """
+    Advanced Class showcasing class concepts
+    """
+    COLORS = ["red", "green", "blue", "black", "white", "yellow"]
 
-        @property
-        def (x)self: #property getter
-            return self._x
+    def __init__(self, x, y, color):
+        if not isinstance(x, (int, float)):
+            raise TypeError("x must be int or float")
+        if not isinstance(y, (int, float)):
+            raise TypeError("y must be int or float")
+        if color not in self.COLORS:
+            raise TypeError(f"Color must be one of {self.COLORS}")
 
-        @property
-        def y(self):
-            return self._y
+        self._x = x
+        self._y = y
+        self._color = color
 
-        @property
-        def color(self):
-            return self._color
+    def __str__(self):
+        return f"p<{self.x}, {self.y}, {self.color}>"
 
-        @color.setter
-        def color(self, color):
-            if value not in self.COLORS:
-                raise TypeError("Color must be one of {self.COLORS}")
-            self._color = value
+    @property
+    def x(self):
+        return self._x
 
-p2 = AdvancedPoint(1,2, "blue")
+    @x.setter
+    def x(self, value):
+        if not isinstance(value, (int, float)):
+            raise TypeError("x must be int or float")
+        self._x = value
+
+    @property
+    def y(self):
+        return self._y
+
+    @y.setter
+    def y(self, value):
+        if not isinstance(value, (int, float)):
+            raise TypeError("y must be int or float")
+        self._y = value
+
+    @property
+    def color(self):
+        return self._color
+
+    @color.setter
+    def color(self, value):
+        if value not in self.COLORS:
+            raise TypeError(f"Color must be one of {self.COLORS}")
+        self._color = value
+
+    @classmethod
+    def add_color(cls, color):
+        cls.COLORS.append(color)
+
+    @staticmethod
+    def distance_2_points(p1, p2): #This does not access any attributes
+
+
+p2 = AdvancedPoint(1, 2, "blue")
 print(p2)
-# p2.x = 100
-# print(p2)
 p2.x = 100
 print(p2)
+p2.color = "red"
+print(AdvancedPoint.COLORS)
