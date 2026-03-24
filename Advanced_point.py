@@ -59,11 +59,31 @@ class AdvancedPoint(ColorPoint):
 
     @staticmethod
     def distance_2_points(p1, p2): #This does not access any attributes
+        return p1.origin(p2)
 
-
+    @staticmethod
+    def from_string(text):
+        # I want to create an advanced point from a string: "red 2 7"
+        # Also called a "factory" method!
+        color, x, y = text.split()
+        if color not in AdvancedPoint.COLORS:
+            raise TypeError(f"Color must be one of {AdvancedPoint.COLORS}")
+        x=float(x)
+        y=float(y)
+        return AdvancedPoint(x,y,color)
 p2 = AdvancedPoint(1, 2, "blue")
 print(p2)
 p2.x = 100
 print(p2)
 p2.color = "red"
 print(AdvancedPoint.COLORS)
+p1 = Point(0,0)
+print(AdvancedPoint.distance_2_points(p1, p2))
+
+# A class can have regular methods, with instant attributes for the class. They have magic methods.
+# Innit - when I create an instance
+#w_lt when I want to make the less than comparison between myself and another element
+# If you want to multiply yourself, mul - multiply
+
+p2 = AdvancedPoint.from_string("pink 7 6.2")
+print(p2)
