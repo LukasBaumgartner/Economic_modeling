@@ -15,7 +15,8 @@
 ##### comparing Color Point vs Point vs Numbers
 
 ## For the remaining three sessions, the main things covered are:
-### Making a poker hand:
-##### removing cheating capabilities
-##### seeing probabilities
+### Making a deck of cards.
+### Making a poker hand from this deck, and making sure we can:
+##### remove cheating capabilities
+##### see hand probabilities
 
